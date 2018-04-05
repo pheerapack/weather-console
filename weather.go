@@ -14,11 +14,12 @@ func toDigital(number int) string {
 	var ptop string
 	var pmid string
 	var pbot string
+	fourtyeight := 48
 	for i := range str {
 		ten = int(str[i])
-		ptop = ptop + top[ten-48]
-		pmid = pmid + mid[ten-48]
-		pbot = pbot + bot[ten-48]
+		ptop = ptop + top[ten-fourtyeight]
+		pmid = pmid + mid[ten-fourtyeight]
+		pbot = pbot + bot[ten-fourtyeight]
 	}
 	return ptop + "\n" + pmid + "\n" + pbot
 
