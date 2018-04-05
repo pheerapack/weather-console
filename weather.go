@@ -4,23 +4,31 @@ import (
 	"strconv"
 )
 
-func toDigital(number int) string {
-	top := [10]string{" _ ", "   ", " _ ", " _ ", "   ", " _ ", " _ ", " _ ", " _ ", " _ "}
-	mid := [10]string{"| |", "  |", " _|", " _|", "|_|", "|_ ", "|_ ", "  |", "|_|", "|_|"}
-	bot := [10]string{"|_|", "  |", "|_ ", " _|", "  |", " _|", "|_|", "  |", "|_|", " _|"}
-	str := strconv.Itoa(number)
+var top = [10]string{" _ ", "   ", " _ ", " _ ", "   ", " _ ", " _ ", " _ ", " _ ", " _ "}
+var mid = [10]string{"| |", "  |", " _|", " _|", "|_|", "|_ ", "|_ ", "  |", "|_|", "|_|"}
+var bot = [10]string{"|_|", "  |", "|_ ", " _|", "  |", " _|", "|_|", "  |", "|_|", " _|"}
+var fourtyeight = 48
 
+func toDigital(number int) string {
+
+	str := strconv.Itoa(number)
+	palldigit := finddigit(str)
+	return palldigit
+
+}
+
+func finddigit(str string) string {
 	var digit int
 	var alltop string
 	var allmid string
 	var allbot string
-	fourtyeight := 48
+
 	for i := range str {
 		digit = int(str[i])
 		alltop = alltop + top[digit-fourtyeight]
 		allmid = allmid + mid[digit-fourtyeight]
 		allbot = allbot + bot[digit-fourtyeight]
 	}
-	return alltop + "\n" + allmid + "\n" + allbot
-
+	alldigit := alltop + "\n" + allmid + "\n" + allbot
+	return alldigit
 }
