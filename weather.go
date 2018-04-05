@@ -10,17 +10,17 @@ func toDigital(number int) string {
 	bot := [10]string{"|_|", "  |", "|_ ", " _|", "  |", " _|", "|_|", "  |", "|_|", " _|"}
 	str := strconv.Itoa(number)
 
-	var ten int
-	var ptop string
-	var pmid string
-	var pbot string
+	var digit int
+	var alltop string
+	var allmid string
+	var allbot string
 	fourtyeight := 48
 	for i := range str {
-		ten = int(str[i])
-		ptop = ptop + top[ten-fourtyeight]
-		pmid = pmid + mid[ten-fourtyeight]
-		pbot = pbot + bot[ten-fourtyeight]
+		digit = int(str[i])
+		alltop = alltop + top[digit-fourtyeight]
+		allmid = allmid + mid[digit-fourtyeight]
+		allbot = allbot + bot[digit-fourtyeight]
 	}
-	return ptop + "\n" + pmid + "\n" + pbot
+	return alltop + "\n" + allmid + "\n" + allbot
 
 }
